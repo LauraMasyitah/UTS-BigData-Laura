@@ -1,5 +1,8 @@
 streamlit
 tensorflow
-ultralytics
+ultralytics==8.0.120
+opencv-python-headless==4.8.0.74
 pillow
 numpy
+requests
+
