@@ -13,6 +13,28 @@ from ultralytics import YOLO
 import os
 
 # ---- Load model KLASIFIKASI (.h5) ----
+import gdown
+
+# Pastikan folder model ada
+os.makedirs("model", exist_ok=True)
+
+# === Download model .h5 dari Google Drive ===
+h5_url = "https://drive.google.com/uc?id=AAAABBBB"   # ganti ID file kamu
+h5_output = "model/model_classification.h5"
+
+if not os.path.exists(h5_output):
+    with st.spinner("Mengunduh model klasifikasi..."):
+        gdown.download(h5_url, h5_output, quiet=False)
+
+
+# === Download model .pt dari Google Drive ===
+pt_url = "https://drive.google.com/uc?id=CCCCDDDD"   # ganti ID file kamu
+pt_output = "model/model_detection.pt"
+
+if not os.path.exists(pt_output):
+    with st.spinner("Mengunduh model deteksi..."):
+        gdown.download(pt_url, pt_output, quiet=False)
+
 classification_model_path = "model/model_classification.h5"
 
 if os.path.exists(classification_model_path):
@@ -94,3 +116,4 @@ if image_to_predict is not None and detection_model is not None:
             st.write(f"- **{class_name}** (confidence: {conf:.2f})")
     else:
         st.write("Tidak ada objek yang terdeteksi.")
+
