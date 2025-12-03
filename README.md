@@ -22,5 +22,7 @@ Model deteksi (.pt):
 ## 🚀 Menjalankan Streamlit
 ```
 pip install -r requirements.txt
-streamlit run app.py
+
+streamlit run dashboard.py atau
+python -m streamlit run dashboard.py
 ```
